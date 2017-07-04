@@ -10,7 +10,7 @@ namespace Moto.Api.Entities
     {
         public MotocyklContext(DbContextOptions<MotocyklContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         public DbSet<Motocykl> Motocykle { get; set; }        

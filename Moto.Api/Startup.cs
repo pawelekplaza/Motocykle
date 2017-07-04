@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moto.Api.Entities;
 using Microsoft.EntityFrameworkCore;
+using Moto.Api.Services;
 
 namespace Moto.Api
 {
@@ -32,11 +33,13 @@ namespace Moto.Api
             // Add framework services.
             services.AddMvc();
 
-            var connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=MotoDB;Trusted_Connection=True;";
+            var connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=MotocykleDB;Trusted_Connection=True;";
             services.AddDbContext<MotocyklContext>(options =>
             {
                 options.UseSqlServer(connectionString);
             });
+
+            services.AddScoped<IMotocykleRepository, MotocykleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
