@@ -4,54 +4,46 @@ using System.Linq;
 using System.Threading.Tasks;
 using Moto.Api.Entities;
 using Moto.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Moto.Api.Services
 {
     public class MotocykleRepository : IMotocykleRepository
     {
-        private MotocyklContext _context;
+        private MotocyklContext _context;        
 
         public MotocykleRepository(MotocyklContext context)
         {
             _context = context;
         }
 
+        public void AddMotorcycle(MotocyklForCreationDto motorcycle)
+        {
+            var entity = AutoMapper.Mapper.Map<Motocykl>(motorcycle);
+            _context.Motocykle.Add(entity);
+            _context.SaveChanges();
+        }
+
+        public void DeleteMotorcycle(Motocykl motorcycle)
+        {
+            _context.Motocykle.Remove(motorcycle);
+            _context.SaveChanges();
+        }
+
         public MotocyklDto GetMotorcycle(int id)
         {
-            var entity = _context.Motocykle.Where(value => value.Id == id).FirstOrDefault();
-            return new MotocyklDto
-            {
-                Id = entity.Id,
-                Marka = entity.Marka,
-                Model = entity.Model,
-                Chlodzenie = entity.Chlodzenie,
-                Masa = entity.Masa,
-                PojemnoscSkokowa = entity.PojemnoscSkokowa,
-                PojemnoscZbiornikaPaliwa = entity.PojemnoscZbiornikaPaliwa,
-                PredkoscMaksymalna = entity.PredkoscMaksymalna,
-                Typ = entity.Typ
-            };
+            var entity = _context.Motocykle.AsNoTracking().Where(value => value.Id == id).FirstOrDefault();
+            return AutoMapper.Mapper.Map<MotocyklDto>(entity);
         }
 
         public IEnumerable<MotocyklDto> GetMotorcycles()
         {
-            var entities = _context.Motocykle.OrderBy(value => value.Marka).ToList();
+            var entities = _context.Motocykle.AsNoTracking().OrderBy(value => value.Marka).ToList();
             var dtos = new List<MotocyklDto>();
 
             foreach (var element in entities)
             {
-                dtos.Add(new MotocyklDto
-                {
-                    Id = element.Id,
-                    Marka = element.Marka,
-                    Model = element.Model,
-                    Chlodzenie = element.Chlodzenie,
-                    Masa = element.Masa,
-                    PojemnoscSkokowa = element.PojemnoscSkokowa,
-                    PojemnoscZbiornikaPaliwa = element.PojemnoscZbiornikaPaliwa,
-                    PredkoscMaksymalna = element.PredkoscMaksymalna,
-                    Typ = element.Typ
-                });
+                dtos.Add(AutoMapper.Mapper.Map<MotocyklDto>(element));
             }
 
             return dtos;

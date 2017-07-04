@@ -37,20 +37,24 @@ namespace Moto.Api.Controllers
         
         // POST: api/Motocykle
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]MotocyklForCreationDto value)
         {
-        }
-        
-        // PUT: api/Motocykle/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            _motocykleRepository.AddMotorcycle(value);
+        }       
         
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var motorcycle = _motocykleRepository.GetMotorcycle(id);
+
+            if (motorcycle == null)
+            {
+                return NotFound();
+            }
+            
+            _motocykleRepository.DeleteMotorcycle(AutoMapper.Mapper.Map<Motocykl>(motorcycle));
+            return NoContent();
         }
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Moto.Api.Entities;
 using Microsoft.EntityFrameworkCore;
 using Moto.Api.Services;
+using Moto.Api.Models;
 
 namespace Moto.Api
 {
@@ -47,6 +48,13 @@ namespace Moto.Api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            AutoMapper.Mapper.Initialize(config =>
+            {
+                config.CreateMap<Motocykl, MotocyklDto>();
+                config.CreateMap<MotocyklDto, Motocykl>();
+                config.CreateMap<MotocyklForCreationDto, Motocykl>();
+            });
 
             app.UseMvc();
         }
