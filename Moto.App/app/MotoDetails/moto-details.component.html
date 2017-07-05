@@ -1,0 +1,56 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+            <h2 style="padding-bottom: 50px;">{{ message }}</h2>
+
+            <table class="table table-striped" *ngIf="moto">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Opis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Marka</td>
+                        <td>{{ moto.marka }}</td>
+                    </tr>
+                    <tr>
+                        <td>Model</td>
+                        <td>{{ moto.model }}</td>
+                    </tr>
+                    <tr>
+                        <td>Typ</td>
+                        <td>{{ moto.typ }}</td>
+                    </tr>
+                    <tr>
+                        <td>Pojemność skokowa</td>
+                        <td>{{ moto.pojemnoscSkokowa }}</td>
+                    </tr>
+                    <tr>
+                        <td>Chłodzenie</td>
+                        <td>{{ moto.chlodzenie }}</td>
+                    </tr>
+                    <tr>
+                        <td>Masa</td>
+                        <td>{{ moto.masa }}</td>
+                    </tr>
+                    <tr>
+                        <td>Pojemność zbiornika paliwa</td>
+                        <td>{{ moto.pojemnoscZbiornikaPaliwa }}</td>
+                    </tr>
+                    <tr>
+                        <td>Prędkość maksymalna</td>
+                        <td>{{ moto.predkoscMaksymalna }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="padding-top: 20px;" *ngIf="moto">
+                <a class="btn btn-default" (click)="back()" style="width:80px">
+                    <i class="glyphicon glyphicon-chevron-left"></i> Back
+                </a>
+            </div> 
+        </div>
+    </div>
+</div>

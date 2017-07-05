@@ -1,10 +1,43 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿<div class="container-fluid">
+    <div class="row motoList">
+        <div class="col-sm-offset-2 col-sm-8">
+            <h2 style="padding-bottom: 50px;">Dodaj nowy motocykl</h2>
 
-</body>
-</html>
+            <div class="row">
+                <div class="col-md-4">Marka:</div>
+                <div class="col-md-8"><input type="text" [(ngModel)]="moto.marka" class="form-control" required/></div>                
+            </div>
+            <div class="row">
+                <div class="col-md-4">Model:</div>
+                <div class="col-md-8"><input type="text" [(ngModel)]="moto.model" class="form-control" required/></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Typ:</div>
+                <div class="col-md-8"><input type="text" [(ngModel)]="moto.typ" class="form-control" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Pojemność skokowa:</div>
+                <div class="col-md-8"><input type="number" [(ngModel)]="moto.pojemnoscSkokowa" class="form-control" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Chłodzenie:</div>
+                <div class="col-md-8"><input type="text" [(ngModel)]="moto.chlodzenie" class="form-control" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Masa:</div>
+                <div class="col-md-8"><input type="number" [(ngModel)]="moto.masa" class="form-control" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Pojemność zbiornika paliwa:</div>
+                <div class="col-md-8"><input type="number" [(ngModel)]="moto.pojemnoscZbiornikaPaliwa" class="form-control" /></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Prędkość maksymalna:</div>
+                <div class="col-md-8"><input type="number" [(ngModel)]="moto.predkoscMaksymalna" class="form-control" /></div>
+            </div>
+            <div>
+                <button class="btn btn-default" type="submit" (click)="addMoto()">Dodaj nowy motocykl</button>
+            </div>
+        </div>
+    </div>
+</div>

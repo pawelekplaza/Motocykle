@@ -1,9 +1,10 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 import { Motocykl } from '../Motocykle/Motocykl';
 
@@ -27,22 +28,29 @@ export class MotoService {
             .catch(this.handleError);
     }
 
-    add(moto: Motocykl): Observable<string> {
-        return this._http.post(this._url, JSON.stringify(moto), { headers: this._headers })
-            .map((response: Response) => <string>response.json())
+    add(moto: Motocykl): Promise<void> {
+        let options = new RequestOptions({ headers: this._headers });
+        return this._http.post(this._url, JSON.stringify(moto), options)
+            .toPromise()
+            .then(() => null)
             .catch(this.handleError);
     }
 
-    delete(id: number): Observable<string> {
+    delete(id: number): Promise<any> {
+        let options = new RequestOptions({ headers: this._headers });        
         const url = `${this._url}/${id}`;
-        return this._http.delete(url)
-            .map((response: Response) => <string>response.json())
-            .catch(this.handleError);
+        return this._http.delete(url, options)
+            .toPromise()
+            .then(response => response ? response.json() : response);
     }
     
 
     private handleError(error: Response) {
         console.log(error);
         return Observable.throw(error.json().error || 'Server error.');
+    }
+
+    private extractData(res: Response) {
+        return res.text() ? res.json() : {};
     }
 }

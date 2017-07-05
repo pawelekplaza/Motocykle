@@ -89,6 +89,7 @@
     <Content Include="app\app.component.html" />
     <Content Include="app\Home\home.component.css" />
     <Content Include="app\Home\home.component.html" />
+    <Content Include="app\MotoDetails\moto-details.component.html" />
     <Content Include="app\MotoList\moto-list.component.css" />
     <Content Include="app\MotoList\moto-list.component.html" />
     <Content Include="app\Navbar\navbar.component.html" />
@@ -154,6 +155,7 @@
     <TypeScriptCompile Include="app\Home\home.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\Motocykle\motocykl.ts" />
+    <TypeScriptCompile Include="app\MotoDetails\moto-details.component.ts" />
     <TypeScriptCompile Include="app\MotoList\moto-list.component.ts" />
     <TypeScriptCompile Include="app\Navbar\navbar.component.ts" />
     <TypeScriptCompile Include="app\Services\moto.service.ts" />

@@ -1,5 +1,5 @@
 ﻿export class Motocykl {
-    id: string;
+    id: number;
     marka: string;
     model: string;
     typ: string;

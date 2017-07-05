@@ -6,13 +6,17 @@
                     <thead>
                         <tr>
                             <th>Model</th>
-                            <th>Marka</th>                            
+                            <th>Marka</th>  
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="motoRow" *ngFor="let moto of motoList">
-                            <td>{{ moto.marka }}</td>
-                            <td>{{ moto.model }}</td>
+                            <td (click)="goToDetails(moto.id)">{{ moto.marka }}</td>
+                            <td (click)="goToDetails(moto.id)">{{ moto.model }}</td>
+                            <td class="col-sm-1">
+                                <button class="btn-group-xs" type="submit"><span class="glyphicon glyphicon-trash" (click)="delete(moto.id)"></span></button>                            
+                            </td>                            
                         </tr>
                     </tbody>
                 </table>
