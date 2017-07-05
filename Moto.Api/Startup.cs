@@ -56,6 +56,14 @@ namespace Moto.Api
                 config.CreateMap<MotocyklForCreationDto, Motocykl>();
             });
 
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin()
+                .AllowCredentials();
+            });
+
             app.UseMvc();
         }
     }

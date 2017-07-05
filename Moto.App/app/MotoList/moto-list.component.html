@@ -1,0 +1,22 @@
+﻿<div class="container-fluid">
+    <div class="row motoList">
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="table-responsive">
+                <table class="table" *ngIf="motoList && motoList.length">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Marka</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="motoRow" *ngFor="let moto of motoList">
+                            <td>{{ moto.marka }}</td>
+                            <td>{{ moto.model }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

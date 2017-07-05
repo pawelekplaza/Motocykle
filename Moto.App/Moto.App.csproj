@@ -83,9 +83,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\AddMoto\add-moto.component.css" />
+    <Content Include="app\AddMoto\add-moto.component.html" />
     <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
+    <Content Include="app\Home\home.component.css" />
     <Content Include="app\Home\home.component.html" />
+    <Content Include="app\MotoList\moto-list.component.css" />
+    <Content Include="app\MotoList\moto-list.component.html" />
     <Content Include="app\Navbar\navbar.component.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -143,12 +148,15 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\AddMoto\add-moto.component.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\Home\home.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\Motocykle\motocykl.ts" />
+    <TypeScriptCompile Include="app\MotoList\moto-list.component.ts" />
     <TypeScriptCompile Include="app\Navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="app\Services\moto.service.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
