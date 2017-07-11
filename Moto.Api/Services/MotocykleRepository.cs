@@ -57,16 +57,19 @@ namespace Moto.Api.Services
                 Id = id,
                 Marka = motorcycle.Marka ?? entity.Marka,
                 Model = motorcycle.Model ?? entity.Model,
-                Chlodzenie = motorcycle.Chlodzenie ?? entity.Chlodzenie,
-                Masa = motorcycle.Masa ?? entity.Masa,
-                PojemnoscSkokowa = motorcycle.PojemnoscSkokowa ?? entity.PojemnoscSkokowa,
-                PojemnoscZbiornikaPaliwa = motorcycle.PojemnoscZbiornikaPaliwa ?? entity.PojemnoscZbiornikaPaliwa,
-                PredkoscMaksymalna = motorcycle.PredkoscMaksymalna ?? entity.PredkoscMaksymalna,
-                Typ = motorcycle.Typ ?? entity.Typ
+                Chlodzenie = motorcycle.Chlodzenie,
+                Masa = motorcycle.Masa ?? 0,
+                PojemnoscSkokowa = motorcycle.PojemnoscSkokowa ?? 0,
+                PojemnoscZbiornikaPaliwa = motorcycle.PojemnoscZbiornikaPaliwa ?? 0,
+                PredkoscMaksymalna = motorcycle.PredkoscMaksymalna ?? 0,
+                Typ = motorcycle.Typ
             };
 
             _context.Entry(entity).CurrentValues.SetValues(updatedMoto);
             _context.SaveChanges();
+            
+            //_context.Entry(entity).CurrentValues.SetValues(motorcycle);
+            //_context.SaveChanges();
         }
     }
 }

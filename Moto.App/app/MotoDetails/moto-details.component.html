@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default pull-right" (click)="toggleEditMode()" style="width:130px;">
-                        <span class="glyphicon glyphicon-pencil pull-left"></span> {{ editMode ? 'Save changes' : 'Edit' }}
+                        <span class="glyphicon glyphicon-pencil" *ngIf="!editMode"></span> {{ editMode ? 'Save changes' : 'Edit' }}
                     </a>
                 </div>
             </div>
