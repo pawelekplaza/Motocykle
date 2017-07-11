@@ -154,7 +154,7 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\Home\home.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
-    <TypeScriptCompile Include="app\Motocykle\motocykl.ts" />
+    <TypeScriptCompile Include="app\Motocykle\Motocykl.ts" />
     <TypeScriptCompile Include="app\MotoDetails\moto-details.component.ts" />
     <TypeScriptCompile Include="app\MotoList\moto-list.component.ts" />
     <TypeScriptCompile Include="app\Navbar\navbar.component.ts" />

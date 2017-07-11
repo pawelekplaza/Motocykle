@@ -8,4 +8,5 @@
     masa: number;
     pojemnoscZbiornikaPaliwa: number;
     predkoscMaksymalna: number;
+    imageUrl: string;
 }
