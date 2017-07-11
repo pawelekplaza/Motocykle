@@ -27,7 +27,7 @@ export class MotoListComponent implements OnInit {
 
     private delete(id: number): void {
         let motoId = this.motoList.findIndex(v => v.id === id);
-
+        
         if (this._motoService.delete(id)) {
             this.motoList.splice(motoId, 1);
         }

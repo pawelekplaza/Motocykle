@@ -11,7 +11,8 @@ namespace Moto.Api.Services
     {
         IEnumerable<MotocyklDto> GetMotorcycles();
         MotocyklDto GetMotorcycle(int id);
-        void AddMotorcycle(MotocyklForCreationDto motocykl);
+        void AddMotorcycle(MotocyklForCreationDto motorcycle);
         void DeleteMotorcycle(Motocykl motorcycle);
+        void UpdateMotorcycle(int id, MotocyklForCreationDto motorcycle);
     }
 }

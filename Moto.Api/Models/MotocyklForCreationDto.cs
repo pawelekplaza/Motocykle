@@ -19,10 +19,10 @@ namespace Moto.Api.Models
         [MaxLength(50, ErrorMessage = "Za długa nazwa typu.")]
         public string Typ { get; set; }
         
-        public double PojemnoscSkokowa { get; set; }       
+        public double? PojemnoscSkokowa { get; set; }       
         public string Chlodzenie { get; set; }
-        public double Masa { get; set; }
-        public double PojemnoscZbiornikaPaliwa { get; set; }
-        public int PredkoscMaksymalna { get; set; }
+        public double? Masa { get; set; }
+        public double? PojemnoscZbiornikaPaliwa { get; set; }
+        public int? PredkoscMaksymalna { get; set; }
     }
 }

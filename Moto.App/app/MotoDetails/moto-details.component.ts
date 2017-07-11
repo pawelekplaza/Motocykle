@@ -11,6 +11,8 @@ import { MotoService } from '../Services/moto.service';
 export class MotoDetailsComponent implements OnInit {
     moto: Motocykl;
     message: string = 'Dane szczegółowe motocykla';
+    editMode = false;
+    url: string;
 
     constructor(private _activatedRoute: ActivatedRoute,
         private _motoService: MotoService,
@@ -18,6 +20,8 @@ export class MotoDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         let id = +this._activatedRoute.snapshot.params['id'];
+        this.url = `motocykle/${id}`;
+
         this._motoService.get(id).subscribe(value => this.showMotoDetails(value), error => console.log(error));
     }
 
@@ -35,5 +39,18 @@ export class MotoDetailsComponent implements OnInit {
 
     private back(): void {
         this._router.navigate(['/motocykle']);
+    }
+
+    private toggleEditMode(): void {
+        if (this.editMode) {
+            this._motoService.update(this.moto.id, this.moto)
+                .then(() => {
+                    this._router.navigate([this.url]);
+                    this.editMode = !this.editMode;
+                });
+        }
+        else {
+            this.editMode = !this.editMode;
+        }
     }
 }

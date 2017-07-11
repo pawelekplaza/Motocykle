@@ -48,5 +48,25 @@ namespace Moto.Api.Services
 
             return dtos;
         }
+
+        public void UpdateMotorcycle(int id, MotocyklForCreationDto motorcycle)
+        {
+            var entity = _context.Motocykle.Where(v => v.Id == id).FirstOrDefault();
+            var updatedMoto = new Motocykl
+            {
+                Id = id,
+                Marka = motorcycle.Marka ?? entity.Marka,
+                Model = motorcycle.Model ?? entity.Model,
+                Chlodzenie = motorcycle.Chlodzenie ?? entity.Chlodzenie,
+                Masa = motorcycle.Masa ?? entity.Masa,
+                PojemnoscSkokowa = motorcycle.PojemnoscSkokowa ?? entity.PojemnoscSkokowa,
+                PojemnoscZbiornikaPaliwa = motorcycle.PojemnoscZbiornikaPaliwa ?? entity.PojemnoscZbiornikaPaliwa,
+                PredkoscMaksymalna = motorcycle.PredkoscMaksymalna ?? entity.PredkoscMaksymalna,
+                Typ = motorcycle.Typ ?? entity.Typ
+            };
+
+            _context.Entry(entity).CurrentValues.SetValues(updatedMoto);
+            _context.SaveChanges();
+        }
     }
 }

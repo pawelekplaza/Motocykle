@@ -43,7 +43,15 @@ export class MotoService {
             .toPromise()
             .then(response => response ? response.json() : response);
     }
-    
+
+    update(id: number, moto: Motocykl): Promise<void> {
+        let options = new RequestOptions({ headers: this._headers });
+        const url = `${this._url}/${id}`;
+        return this._http.put(url, JSON.stringify(moto), options)
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
+    }
 
     private handleError(error: Response) {
         console.log(error);

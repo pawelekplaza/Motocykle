@@ -13,44 +13,75 @@
                 <tbody>
                     <tr>
                         <td>Marka</td>
-                        <td>{{ moto.marka }}</td>
+                        <td *ngIf="!editMode">{{ moto.marka }}</td>
+                        <td *ngIf="editMode">
+                            <input type="text" [(ngModel)]="moto.marka" class="form-control" />
+                        </td>
                     </tr>
                     <tr>
                         <td>Model</td>
-                        <td>{{ moto.model }}</td>
+                        <td *ngIf="!editMode">{{ moto.model }}</td>
+                        <td *ngIf="editMode">
+                            <input type="text" [(ngModel)]="moto.model" class="form-control" />
+                        </td>
                     </tr>
                     <tr>
                         <td>Typ</td>
-                        <td>{{ moto.typ }}</td>
+                        <td *ngIf="!editMode">{{ moto.typ }}</td>
+                        <td *ngIf="editMode">
+                            <input type="text" [(ngModel)]="moto.typ" class="form-control" />
+                        </td>
                     </tr>
                     <tr>
                         <td>Pojemność skokowa</td>
-                        <td>{{ moto.pojemnoscSkokowa }}</td>
+                        <td *ngIf="!editMode">{{ moto.pojemnoscSkokowa }}</td>
+                        <td *ngIf="editMode">
+                            <input type="number" [(ngModel)]="moto.pojemnoscSkokowa" class="form-control" />
+                        </td>
                     </tr>
                     <tr>
                         <td>Chłodzenie</td>
-                        <td>{{ moto.chlodzenie }}</td>
+                        <td *ngIf="!editMode">{{ moto.chlodzenie }}</td>
+                        <td *ngIf="editMode">
+                            <input type="text" [(ngModel)]="moto.chlodzenie" class="form-control" />
+                        </td>
                     </tr>
                     <tr>
                         <td>Masa</td>
-                        <td>{{ moto.masa }}</td>
+                        <td *ngIf="!editMode">{{ moto.masa }}</td>
+                        <td *ngIf="editMode">
+                            <input type="number" [(ngModel)]="moto.masa" class="form-control" />
+                        </td>
                     </tr>
                     <tr>
                         <td>Pojemność zbiornika paliwa</td>
-                        <td>{{ moto.pojemnoscZbiornikaPaliwa }}</td>
+                        <td *ngIf="!editMode">{{ moto.pojemnoscZbiornikaPaliwa }}</td>
+                        <td *ngIf="editMode">
+                            <input type="number" [(ngModel)]="moto.pojemnoscZbiornikaPaliwa" class="form-control" />
+                        </td>
                     </tr>
                     <tr>
                         <td>Prędkość maksymalna</td>
-                        <td>{{ moto.predkoscMaksymalna }}</td>
+                        <td *ngIf="!editMode">{{ moto.predkoscMaksymalna }}</td>
+                        <td *ngIf="editMode">
+                            <input type="number" [(ngModel)]="moto.predkoscMaksymalna" class="form-control"/>
+                        </td>
                     </tr>
                 </tbody>
             </table>
 
-            <div style="padding-top: 20px;" *ngIf="moto">
-                <a class="btn btn-default" (click)="back()" style="width:80px">
-                    <i class="glyphicon glyphicon-chevron-left"></i> Back
-                </a>
-            </div> 
+            <div class="row" style="padding-top: 20px;" *ngIf="moto">     
+                <div class="col-sm-6">
+                    <a class="btn btn-default" (click)="back()" style="width:130px;">
+                        <i class="glyphicon glyphicon-chevron-left"></i> Back
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-default pull-right" (click)="toggleEditMode()" style="width:130px;">
+                        <span class="glyphicon glyphicon-pencil pull-left"></span> {{ editMode ? 'Save changes' : 'Edit' }}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

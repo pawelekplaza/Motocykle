@@ -40,7 +40,14 @@ namespace Moto.Api.Controllers
         public void Post([FromBody]MotocyklForCreationDto value)
         {
             _motocykleRepository.AddMotorcycle(value);
-        }       
+        }
+
+        // PUT: api/Motocykle/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]MotocyklForCreationDto value)
+        {
+            _motocykleRepository.UpdateMotorcycle(id, value);
+        }
         
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
