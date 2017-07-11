@@ -35,6 +35,10 @@
                 <div class="col-md-4">Prędkość maksymalna:</div>
                 <div class="col-md-8"><input type="number" [(ngModel)]="moto.predkoscMaksymalna" class="form-control" /></div>
             </div>
+            <div class="row">
+                <div class="col-md-4">Adres obrazka:</div>
+                <div class="col-md-8"><input type="text" [(ngModel)]="moto.imageUrl" class="form-control" /></div>
+            </div>
             <div>
                 <button class="btn btn-default" type="submit" (click)="addMoto()">Dodaj nowy motocykl</button>
             </div>

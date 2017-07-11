@@ -8,9 +8,10 @@ using Moto.Api.Entities;
 namespace Moto.Api.Migrations
 {
     [DbContext(typeof(MotocyklContext))]
-    partial class MotocyklContextModelSnapshot : ModelSnapshot
+    [Migration("20170711152927_Motocykle_11072017")]
+    partial class Motocykle_11072017
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

@@ -1,7 +1,10 @@
 ﻿<div class="container-fluid">
     <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
-            <h2 style="padding-bottom: 50px;">{{ message }}</h2>
+            <div class="row">
+                <h2 class="col-sm-6" style="padding-bottom: 50px;">{{ message }}</h2>
+                <img class="col-sm-6 pull-right" [src]="moto.imageUrl" style="max-width:300px; max-height:300px;" *ngIf="moto && moto.imageUrl" />
+            </div>
 
             <table class="table table-striped" *ngIf="moto">
                 <thead>
@@ -65,6 +68,13 @@
                         <td *ngIf="!editMode">{{ moto.predkoscMaksymalna }}</td>
                         <td *ngIf="editMode">
                             <input type="number" [(ngModel)]="moto.predkoscMaksymalna" class="form-control"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Adres obrazka</td>
+                        <td *ngIf="!editMode">{{ moto.imageUrl }}</td>
+                        <td *ngIf="editMode">
+                            <input type="text" [(ngModel)]="moto.imageUrl" class="form-control" />
                         </td>
                     </tr>
                 </tbody>

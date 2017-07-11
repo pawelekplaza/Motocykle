@@ -24,5 +24,6 @@ namespace Moto.Api.Models
         public double? Masa { get; set; }
         public double? PojemnoscZbiornikaPaliwa { get; set; }
         public int? PredkoscMaksymalna { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

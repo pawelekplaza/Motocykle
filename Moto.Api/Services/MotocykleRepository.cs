@@ -62,7 +62,8 @@ namespace Moto.Api.Services
                 PojemnoscSkokowa = motorcycle.PojemnoscSkokowa ?? 0,
                 PojemnoscZbiornikaPaliwa = motorcycle.PojemnoscZbiornikaPaliwa ?? 0,
                 PredkoscMaksymalna = motorcycle.PredkoscMaksymalna ?? 0,
-                Typ = motorcycle.Typ
+                Typ = motorcycle.Typ,
+                ImageUrl = motorcycle.ImageUrl
             };
 
             _context.Entry(entity).CurrentValues.SetValues(updatedMoto);
